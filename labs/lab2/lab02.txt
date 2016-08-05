@@ -2,13 +2,13 @@
 
 a) What word is on line 2000
 
-Less keystrokes:
-Word:
+Less keystrokes:2000g
+Word:algonquian
 
 b) the first word in the dictionary file containing z
 
-Less keystrokes:
-Word:
+Less keystrokes:b till top and then /z
+Word:abkhaz
 
 c) the last word in the dictionary that contains the substring ooz ?
 
@@ -20,36 +20,44 @@ Word:
 
 a) How many total words does the file contain?
 
-Command:
-Answer:
+Command:wc words.txt
+Answer:390582
 
 b) How many total words, excluding those ending in "'s", are there in the dictionary?
 
-Pipeline:
-Answer:
+Pipeline:egrep -v "'s" words.txt | wc
+Answer:299840
 
 c) How could you use cat -n and grep to find out which word is on line 100000?
 
-Pipeline:
-Answer:
+Pipeline:cat -n words.txt | egrep -w "100000"
+Answer:100000	adviser
 
 d) How could you use cat -n and grep to print the 700th line, and no other lines?
 
-Pipeline:
-Answer:
+Pipeline:cat -n words.txt | egrep -w "700"
+Answer:700	Adirondack
 
 
 e) How do you use head and tail to find out what word is on line 200000
 
-Pipeline:
-Answer:
+Pipeline: head -200000 words.txt
+Answer:geodynamics's
 
 == Question 3: Finding Unusual Words With Regular Expressions ==
 
 a) which words contain the characters "lmn" consecutively?
 
-Pipeline:
+Pipeline:egrep "lmn" words.txt
 Answer:
+Selmner
+Selmner's
+almner
+almners
+calmness
+calmness's
+calmnesses
+
 
 b) how many words contain "zz", but do not end in apostrophe-s ('s)?
 
